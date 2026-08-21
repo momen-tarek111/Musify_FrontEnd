@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createContext, useContext,useState } from "react"
 export const AuthContext=createContext();
-export const API_BASE_URL="https://musifybackend-production-813c.up.railway.app";
+export const API_BASE_URL="https://musifybackend-production-c874.up.railway.app";
 export const useAuth=()=>{
     const context=useContext(AuthContext);
     if(!context){
