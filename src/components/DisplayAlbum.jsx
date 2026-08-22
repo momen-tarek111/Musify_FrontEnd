@@ -24,7 +24,7 @@ function DisplayAlbum({album}) {
       {/* Scrollable wrapper starts here */}
       <div className="overflow-x-auto mt-10">
         <div className="min-w-[600px]">
-          <div className="grid grid-cols-[3fr_1fr_60px] sm:grid-cols-[3fr_1fr_1fr_60px] mb-4 pl-2 text-[#a7a7a7]">
+          <div className="grid grid-cols-[1fr_1fr_60px] sm:grid-cols-[2fr_1fr_1fr_60px] mb-4 pl-2 text-[#a7a7a7]">
             <p>
               <b className="mr-4">#</b>
             </p>
