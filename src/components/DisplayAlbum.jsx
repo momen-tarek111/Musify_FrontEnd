@@ -24,7 +24,7 @@ function DisplayAlbum({album}) {
       {/* Scrollable wrapper starts here */}
       <div className="overflow-x-auto mt-10">
         <div className="min-w-[600px]">
-          <div className="grid grid-cols-3 sm:grid-cols-4 mb-4 pl-2 text-[#a7a7a7]">
+          <div className="grid grid-cols-[3fr_1fr_60px] sm:grid-cols-[3fr_1fr_1fr_60px] mb-4 pl-2 text-[#a7a7a7]">
             <p>
               <b className="mr-4">#</b>
             </p>
@@ -38,7 +38,7 @@ function DisplayAlbum({album}) {
             .map((item,index)=>(
               <div
                 onClick={()=>playWithId(item._id)}
-                className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
+                className="grid grid-cols-[3fr_1fr_60px] sm:grid-cols-[3fr_1fr_1fr_60px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
                 key={index}>
                   <p className="text-white">
                     <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
