@@ -23,33 +23,43 @@ function DisplayAlbum({album}) {
 
       {/* Scrollable wrapper - only scrolls if content doesn't fit */}
       <div className="overflow-x-auto mt-10">
-        <div className="min-w-full w-full grid grid-cols-[minmax(150px,max-content)_80px_36px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 mb-4 pl-2 text-[#a7a7a7] whitespace-nowrap">
-          <p>
-            <b className="mr-4">#</b>
-          </p>
-          <p className="truncate">Album</p>
-          <p className="hidden sm:block">Date Added</p>
-          <Clock className="block mx-auto w-4" />
-        </div>
+        <table className="w-full border-collapse text-[#a7a7a7]">
+          <thead>
+            <tr className="text-left">
+              <th className="font-normal pl-2 pb-4 whitespace-nowrap"><b className="mr-4">#</b></th>
+              <th className="font-normal pb-4 px-2 whitespace-nowrap">Album</th>
+              <th className="font-normal pb-4 px-2 whitespace-nowrap hidden sm:table-cell">Date Added</th>
+              <th className="font-normal pb-4 px-2 text-center">
+                <Clock className="inline-block w-4" />
+              </th>
+            </tr>
+          </thead>
+        </table>
         <hr className="w-full min-w-full" />
-        {
-          songsData.filter(song=>song.album===album?.name)
-          .map((item,index)=>(
-            <div
-              onClick={()=>playWithId(item._id)}
-              className="min-w-full w-full grid grid-cols-[minmax(150px,max-content)_80px_36px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer whitespace-nowrap"
-              key={index}>
-                <p className="text-white flex items-center">
-                  <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
-                  <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px]" />
-                  <span>{item.name}</span>
-                </p>
-                <p className="text-[15px] truncate">{album?.name}</p>
-                <p className="text-[15px] hidden sm:block">5 days ago</p>
-                <p className="text-[15px] text-center">{item.duration}</p>
-            </div>
-          ))
-        }
+        <table className="w-full border-collapse text-[#a7a7a7]">
+          <tbody>
+            {
+              songsData.filter(song=>song.album===album?.name)
+              .map((item,index)=>(
+                <tr
+                  onClick={()=>playWithId(item._id)}
+                  className="hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer"
+                  key={index}>
+                    <td className="text-white pl-2 py-2 whitespace-nowrap">
+                      <div className="flex items-center">
+                        <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
+                        <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px]" />
+                        <span>{item.name}</span>
+                      </div>
+                    </td>
+                    <td className="text-[15px] px-2 py-2 whitespace-nowrap">{album?.name}</td>
+                    <td className="text-[15px] px-2 py-2 whitespace-nowrap hidden sm:table-cell">5 days ago</td>
+                    <td className="text-[15px] px-2 py-2 text-center whitespace-nowrap">{item.duration}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </div>
     </>
   ):null;
