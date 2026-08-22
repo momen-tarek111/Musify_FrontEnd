@@ -25,7 +25,7 @@ function DisplayAlbum({album}) {
       <div className="overflow-x-auto mt-10">
         <table className="w-full border-collapse text-[#a7a7a7]">
           <thead>
-            <tr className="text-left">
+            <tr className="text-left border-b border-[#ffffff33]">
               <th className="font-normal pl-2 pb-4 whitespace-nowrap"><b className="mr-4">#</b></th>
               <th className="font-normal pb-4 px-2 whitespace-nowrap">Album</th>
               <th className="font-normal pb-4 px-2 whitespace-nowrap hidden sm:table-cell">Date Added</th>
@@ -34,9 +34,6 @@ function DisplayAlbum({album}) {
               </th>
             </tr>
           </thead>
-        </table>
-        <hr className="w-full min-w-full" />
-        <table className="w-full border-collapse text-[#a7a7a7]">
           <tbody>
             {
               songsData.filter(song=>song.album===album?.name)
