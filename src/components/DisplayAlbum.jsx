@@ -23,13 +23,13 @@ function DisplayAlbum({album}) {
 
       {/* Scrollable wrapper - only scrolls if content doesn't fit */}
       <div className="overflow-x-auto mt-10">
-        <div className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] mb-4 pl-2 text-[#a7a7a7] whitespace-nowrap">
+        <div className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] mb-4 pl-2 text-[#a7a7a7] whitespace-nowrap">
           <p>
             <b className="mr-4">#</b>
           </p>
           <p>Album</p>
           <p className="hidden sm:block">Date Added</p>
-          <Clock className="m-auto w-4" />
+          <Clock className="block mx-auto w-4" />
         </div>
         <hr />
         {
@@ -37,7 +37,7 @@ function DisplayAlbum({album}) {
           .map((item,index)=>(
             <div
               onClick={()=>playWithId(item._id)}
-              className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer whitespace-nowrap"
+              className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer whitespace-nowrap"
               key={index}>
                 <p className="text-white flex items-center">
                   <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
@@ -46,7 +46,7 @@ function DisplayAlbum({album}) {
                 </p>
                 <p className="text-[15px]">{album?.name}</p>
                 <p className="text-[15px] hidden sm:block">5 days ago</p>
-                <p className="text-[15px] m-auto">{item.duration}</p>
+                <p className="text-[15px] text-center">{item.duration}</p>
             </div>
           ))
         }
