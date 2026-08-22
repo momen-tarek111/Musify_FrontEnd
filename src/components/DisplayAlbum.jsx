@@ -20,33 +20,40 @@ function DisplayAlbum({album}) {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-[#a7a7a7]">
-        <p>
-          <b className="mr-4">#</b>
-        </p>
-        <p>Album</p>
-        <p className="hidden sm:block">Date Added</p>
-        <Clock className="m-auto w-4" />
-      </div>
-      <hr />
-      {
-        songsData.filter(song=>song.album===album?.name)
-        .map((item,index)=>(
-          <div
-            onClick={()=>playWithId(item._id)}
-            className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
-            key={index}>
-              <p className="text-white">
-                <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
-                <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px]" />
-                {item.name}
-              </p>
-              <p className="text-[15px]">{album?.name}</p>
-              <p className="text-[15px] hidden sm:block">5 days ago</p>
-              <p className="text-[15px] m-auto">{item.duration}</p>
+
+      {/* Scrollable wrapper starts here */}
+      <div className="overflow-x-auto mt-10">
+        <div className="min-w-[600px]">
+          <div className="grid grid-cols-3 sm:grid-cols-4 mb-4 pl-2 text-[#a7a7a7]">
+            <p>
+              <b className="mr-4">#</b>
+            </p>
+            <p>Album</p>
+            <p className="hidden sm:block">Date Added</p>
+            <Clock className="m-auto w-4" />
           </div>
-        ))
-      }
+          <hr />
+          {
+            songsData.filter(song=>song.album===album?.name)
+            .map((item,index)=>(
+              <div
+                onClick={()=>playWithId(item._id)}
+                className="grid grid-cols-3 sm:grid-cols-4 gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer"
+                key={index}>
+                  <p className="text-white">
+                    <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
+                    <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px]" />
+                    {item.name}
+                  </p>
+                  <p className="text-[15px]">{album?.name}</p>
+                  <p className="text-[15px] hidden sm:block">5 days ago</p>
+                  <p className="text-[15px] m-auto">{item.duration}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      {/* Scrollable wrapper ends here */}
     </>
   ):null;
 }
