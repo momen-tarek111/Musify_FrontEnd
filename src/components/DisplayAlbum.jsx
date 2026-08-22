@@ -53,6 +53,7 @@ function DisplayAlbum({album}) {
                     <td className="text-[15px] px-2 py-2 text-center whitespace-nowrap">{item.duration}</td>
                 </tr>
               ))
+              
             }
           </tbody>
         </table>
