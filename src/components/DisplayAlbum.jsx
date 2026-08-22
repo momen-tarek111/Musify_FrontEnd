@@ -23,7 +23,7 @@ function DisplayAlbum({album}) {
 
       {/* Scrollable wrapper - only scrolls if content doesn't fit */}
       <div className="overflow-x-auto mt-10">
-        <div className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] mb-4 pl-2 text-[#a7a7a7] whitespace-nowrap">
+        <div className="min-w-full w-full grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 mb-4 pl-2 text-[#a7a7a7] whitespace-nowrap">
           <p>
             <b className="mr-4">#</b>
           </p>
@@ -31,13 +31,13 @@ function DisplayAlbum({album}) {
           <p className="hidden sm:block">Date Added</p>
           <Clock className="block mx-auto w-4" />
         </div>
-        <hr />
+        <hr className="w-full min-w-full" />
         {
           songsData.filter(song=>song.album===album?.name)
           .map((item,index)=>(
             <div
               onClick={()=>playWithId(item._id)}
-              className="grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer whitespace-nowrap"
+              className="min-w-full w-full grid grid-cols-[minmax(200px,max-content)_140px_50px] sm:grid-cols-[minmax(240px,max-content)_140px_130px_50px] lg:grid-cols-[1fr_180px_150px_60px] gap-2 p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer whitespace-nowrap"
               key={index}>
                 <p className="text-white flex items-center">
                   <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
