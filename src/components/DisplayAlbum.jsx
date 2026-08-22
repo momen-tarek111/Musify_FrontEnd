@@ -21,7 +21,6 @@ function DisplayAlbum({album}) {
         </div>
       </div>
 
-      {/* Scrollable wrapper - only scrolls if content doesn't fit */}
       <div className="overflow-x-auto mt-10">
         <table className="w-full border-collapse text-[#a7a7a7]">
           <thead>
@@ -43,10 +42,10 @@ function DisplayAlbum({album}) {
                   className="hover:bg-[#ffffff2b] odd:bg-[#ffffff08] cursor-pointer"
                   key={index}>
                     <td className="text-white pl-2 py-2 whitespace-nowrap">
-                      <div className="flex items-center">
-                        <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
-                        <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px]" />
-                        <span>{item.name}</span>
+                      <div className="flex items-center max-w-[140px] sm:max-w-[220px] lg:max-w-none">
+                        <b className="mr-4 text-[#a7a7a7] flex-shrink-0">{index + 1}</b>
+                        <img src={item.imageUrl} alt="" className="inline w-10 mr-5 min-h-[40px] flex-shrink-0" />
+                        <span className="truncate">{item.name}</span>
                       </div>
                     </td>
                     <td className="text-[15px] px-2 py-2 whitespace-nowrap">{album?.name}</td>
