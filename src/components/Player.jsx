@@ -27,16 +27,23 @@ function Player() {
 
     const isFirstSong = currentIndex === 0;
     const isLastSong = currentIndex === songsData.length - 1;
-  return track?(
+    
+  return track ? (
     <>
         <audio ref={audioRef} />
-            <div className='h-[80px] w-full shrink-0 bg-black flex justify-between items-center text-white px-4'>            <div className='hidden lg:flex items-center gap-4'>
+        <div className='h-[80px] w-full shrink-0 bg-black flex justify-between items-center text-white px-4'>
+            
+            {/* Changed from 'hidden lg:flex' to 'flex' so it shows on all screens */}
+            <div className='flex items-center gap-4'>
                 <img src={track.imageUrl} alt='' className='w-12'/>
-                <div>
+                
+                {/* Added 'hidden lg:block' so only the text hides on mobile */}
+                <div className='hidden lg:block'>
                     <p>{track.name}</p>
-                    <p>{track.desc}</p>
+                    <p className='text-sm text-gray-400'>{track.desc}</p>
                 </div>
             </div>
+
             <div className='flex flex-col items-center gap-1 m-auto'>
                 <div className='flex gap-4'>
                     <Shuffle className='w-4 h-4 cursor-pointer text-white hover:text-green-500 transition-colors'/>
@@ -48,9 +55,9 @@ function Player() {
                                 : "text-white cursor-pointer hover:text-green-500"
                         }`}
                     />
-                    {playStatus?(
+                    {playStatus ? (
                         <Pause onClick={pause} className='w-4 h-4 cursor-pointer text-white hover:text-green-500 transition-colors'/>
-                    ):(
+                    ) : (
                         <Play onClick={play} className='w-4 h-4 cursor-pointer text-white hover:text-green-500 transition-colors'/>
                     )}
                     <SkipForward
@@ -80,6 +87,7 @@ function Player() {
                     <p>{track.duration}</p>
                 </div>
             </div>
+            
             <div className='hidden lg:flex items-center gap-2 opacity-75'>
                 <ListMusic className='w-4 h-4 cursor-pointer text-white hover:text-green-500 transition-colors'/>
                 <Mic className='w-4 h-4 cursor-pointer text-white hover:text-green-500 transition-colors'/>
@@ -90,7 +98,7 @@ function Player() {
             </div>
         </div>
     </>
-  ):null
+  ) : null
 }
 
 export default Player
