@@ -90,20 +90,31 @@ export const PlayerContextProvider = ({ children }) => {
 
     const playSong = async (song) => {
         const audio = audioRef.current;
-
         if (!song || !audio) {
             return;
         }
 
         try {
+            // Stop current song
+            audio.pause();
+
+            // Change the current track
             setTrack(song);
 
+            // Set the new audio source
             audio.src = song.file;
+
+            // Start from beginning
+            audio.currentTime = 0;
+
+            // Load the new song
             audio.load();
 
+            // Play immediately
             await audio.play();
 
             setPlayStatus(true);
+
         } catch (error) {
             console.error("Error playing song:", error);
             setPlayStatus(false);
@@ -248,39 +259,39 @@ export const PlayerContextProvider = ({ children }) => {
     // Sync Audio With Track
     // =========================
 
-    useEffect(() => {
-        const audio = audioRef.current;
+    // useEffect(() => {
+    //     const audio = audioRef.current;
 
-        if (!audio || !track) {
-            return;
-        }
+    //     if (!audio || !track) {
+    //         return;
+    //     }
 
-        /*
-         * Whenever track changes, make sure
-         * the audio element has the correct source.
-         */
-        if (audio.src !== track.file) {
-            audio.src = track.file;
-            audio.load();
-        }
+    //     /*
+    //      * Whenever track changes, make sure
+    //      * the audio element has the correct source.
+    //      */
+    //     if (audio.src !== track.file) {
+    //         audio.src = track.file;
+    //         audio.load();
+    //     }
 
-        // Reset progress
-        setTime({
-            currentTime: {
-                second: 0,
-                minute: 0
-            },
-            totalTime: {
-                second: 0,
-                minute: 0
-            }
-        });
+    //     // Reset progress
+    //     setTime({
+    //         currentTime: {
+    //             second: 0,
+    //             minute: 0
+    //         },
+    //         totalTime: {
+    //             second: 0,
+    //             minute: 0
+    //         }
+    //     });
 
-        if (seekBar.current) {
-            seekBar.current.style.width = "0%";
-        }
+    //     if (seekBar.current) {
+    //         seekBar.current.style.width = "0%";
+    //     }
 
-    }, [track]);
+    // }, [track]);
 
     // =========================
     // Time / Progress

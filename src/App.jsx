@@ -38,7 +38,6 @@ function App() {
                     {/* ONE AUDIO ELEMENT ONLY */}
                     <audio
                         ref={audioRef}
-                        src={track?.file || undefined}
                         preload="auto"
                     />
 
