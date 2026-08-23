@@ -30,8 +30,7 @@ function Player() {
   return track?(
     <>
         <audio ref={audioRef} />
-        <div className='h-[10%] bg-black flex justify-between items-center text-white px-4'>
-            <div className='hidden lg:flex items-center gap-4'>
+            <div className='h-[80px] w-full shrink-0 bg-black flex justify-between items-center text-white px-4'>            <div className='hidden lg:flex items-center gap-4'>
                 <img src={track.imageUrl} alt='' className='w-12'/>
                 <div>
                     <p>{track.name}</p>
