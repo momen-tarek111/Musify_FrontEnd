@@ -1,16 +1,71 @@
-# React + Vite
+# 🎵 Musify — User App (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **GitHub short description (About section):**
+> React music streaming app with a Spotify-inspired UI — real-time player, live search, and album browsing, powered by a Spring Boot + MongoDB backend.
 
-Currently, two official plugins are available:
+The user-facing web app for **Musify**, a full-stack music streaming platform. Built with React and a Spotify-themed UI, letting users browse albums, search songs, and stream music with a real-time player.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**🔗 Live Demo:** https://musify-front-end.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- ▶️ Real-time music player with working seek bar
+- 🔍 Live search across songs and albums with instant filtering
+- 📀 Album browsing — open an album to view all of its songs
+- 🎧 Smooth playback controls integrated with the backend API
+- 📱 Fully responsive design for mobile, tablet, and desktop
+- 🎨 Spotify-inspired dark UI using Lucide React icons and Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Library | React.js |
+| Styling | Tailwind CSS |
+| Icons | Lucide React |
+| API Communication | REST (Axios / Fetch) |
+| Auth | JWT (issued by Musify backend) |
+
+## ⚙️ Getting Started
+
+### Prerequisites
+- Node.js 18+
+- The [Musify backend](https://github.com/momen-tarek111/Musify_Backend) running locally or deployed
+
+### Environment Variables
+
+```env
+VITE_API_BASE_URL=http://localhost:8080/api
+```
+
+### Run Locally
+
+```bash
+git clone https://github.com/momen-tarek111/Musify_FrontEnd.git
+cd musify-frontend-user
+npm install
+npm run dev
+```
+
+## 📂 Project Structure
+
+```
+src/
+├── components/     # Player, SearchBar, AlbumCard, SongList...
+├── pages/          # Home, Album, Search
+├── services/       # API calls to the backend
+├── context/        # Auth / player state
+└── assets/         # Images & icons
+```
+
+## 🔗 Related Repositories
+
+- ⚙️ [Musify — Backend API](https://github.com/momen-tarek111/Musify_Backend)
+- 🛠️ [Musify — Admin Panel](https://github.com/momen-tarek111/Musify_Admin_FrontEnd)
+
+## 👤 Author
+
+**Momen Tarek Nagaty** — Full Stack Developer
+[LinkedIn](http://www.linkedin.com/in/momen-tarek-nagaty) · [GitHub](https://github.com/momen-tarek111)
