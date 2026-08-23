@@ -255,48 +255,6 @@ export const PlayerContextProvider = ({ children }) => {
         }
     }, [user, token]);
 
-    // =========================
-    // Sync Audio With Track
-    // =========================
-
-    // useEffect(() => {
-    //     const audio = audioRef.current;
-
-    //     if (!audio || !track) {
-    //         return;
-    //     }
-
-    //     /*
-    //      * Whenever track changes, make sure
-    //      * the audio element has the correct source.
-    //      */
-    //     if (audio.src !== track.file) {
-    //         audio.src = track.file;
-    //         audio.load();
-    //     }
-
-    //     // Reset progress
-    //     setTime({
-    //         currentTime: {
-    //             second: 0,
-    //             minute: 0
-    //         },
-    //         totalTime: {
-    //             second: 0,
-    //             minute: 0
-    //         }
-    //     });
-
-    //     if (seekBar.current) {
-    //         seekBar.current.style.width = "0%";
-    //     }
-
-    // }, [track]);
-
-    // =========================
-    // Time / Progress
-    // =========================
-
     useEffect(() => {
         const audio = audioRef.current;
 
