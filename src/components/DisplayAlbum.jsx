@@ -23,13 +23,13 @@ function DisplayAlbum({album}) {
 
       {/* Scrolls horizontally only when content is wider than the screen */}
       <div className="overflow-x-auto mt-10">
-        <table className="w-full border-collapse text-[#a7a7a7]">
+        <table className="min-w-full w-max border-collapse text-[#a7a7a7]">
           <thead>
             <tr className="text-left border-b border-[#ffffff33]">
               <th className="font-normal pl-2 pb-4 whitespace-nowrap"><b className="mr-4">#</b></th>
-              <th className="font-normal pb-4 px-2 whitespace-nowrap">Album</th>
-              <th className="font-normal pb-4 px-2 whitespace-nowrap hidden sm:table-cell">Date Added</th>
-              <th className="font-normal pb-4 px-2 text-center">
+              <th className="font-normal pb-4 px-4 whitespace-nowrap">Album</th>
+              <th className="font-normal pb-4 px-4 whitespace-nowrap hidden sm:table-cell">Date Added</th>
+              <th className="font-normal pb-4 px-4 text-center">
                 <Clock className="inline-block w-4" />
               </th>
             </tr>
@@ -49,9 +49,9 @@ function DisplayAlbum({album}) {
                         <span>{item.name}</span>
                       </div>
                     </td>
-                    <td className="text-[15px] px-2 py-2 whitespace-nowrap">{album?.name}</td>
-                    <td className="text-[15px] px-2 py-2 whitespace-nowrap hidden sm:table-cell">5 days ago</td>
-                    <td className="text-[15px] px-2 py-2 text-center whitespace-nowrap">{item.duration}</td>
+                    <td className="text-[15px] px-4 py-2 whitespace-nowrap">{album?.name}</td>
+                    <td className="text-[15px] px-4 py-2 whitespace-nowrap hidden sm:table-cell">5 days ago</td>
+                    <td className="text-[15px] px-4 py-2 text-center whitespace-nowrap">{item.duration}</td>
                 </tr>
               ))
             }
